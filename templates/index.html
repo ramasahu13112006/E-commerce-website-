@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic NeoShop</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+
+    <nav class="navbar">
+        <div class="logo">⚡ NeoShop</div>
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="search-input" placeholder="Search product name..." oninput="handleSearch()">
+        </div>
+        <div class="cart-icon" onclick="toggleCart()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1 class="section-title">Explore Store</h1>
+        <div id="products-grid" class="products-grid">
+            <p class="loading">Loading amazing products...</p>
+        </div>
+    </main>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <i class="fas fa-times close-btn" onclick="toggleCart()"></i>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="total-price">Total: ₹<span id="cart-total">0.00</span></div>
+            <button class="checkout-btn" onclick="openCheckoutForm()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-times modal-close" onclick="closeCheckoutForm()"></i>
+            <h2>Complete Your Order</h2>
+            <form id="order-form" onsubmit="handleCheckout(event)">
+                <div class="input-group">
+                    <label>Full Name</label>
+                    <input type="text" id="cust-name" required placeholder="Enter your name">
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="cust-email" required placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="cust-phone" required placeholder="Enter mobile number">
+                </div>
+                <button type="submit" class="submit-order-btn">Submit & Place Order via Email</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
